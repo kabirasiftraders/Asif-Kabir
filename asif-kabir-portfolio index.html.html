@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asif Kabir — FMCG Sales Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12202B;
+    --bg-alt: #0D171F;
+    --paper: #F3EFE6;
+    --paper-line: #D8D0BF;
+    --accent-amber: #D98E2B;
+    --accent-teal: #4C9384;
+    --text-light: #F1ECE3;
+    --text-dark: #1A2530;
+    --muted: #8FA3AE;
+    --muted-dark: #6B675A;
+    --serif: 'Zilla Slab', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-light);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(18, 32, 43, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(143, 163, 174, 0.15);
+    z-index: 10;
+  }
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .nav-mark {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .nav-links a { position: relative; }
+  .nav-links a:hover { color: var(--text-light); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1px;
+    background: var(--accent-amber);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  header.hero {
+    padding: 96px 0 84px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    color: var(--accent-amber);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: riseIn 0.7s ease forwards;
+  }
+  h1.hero-name {
+    font-family: var(--serif);
+    font-size: clamp(42px, 7vw, 68px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 11ch;
+    opacity: 0;
+    animation: riseIn 0.7s ease 0.1s forwards;
+  }
+  .hero-role {
+    margin-top: 22px;
+    font-size: clamp(17px, 2.4vw, 20px);
+    color: var(--text-light);
+    max-width: 46ch;
+    font-weight: 300;
+    opacity: 0;
+    animation: riseIn 0.7s ease 0.22s forwards;
+  }
+  .hero-location {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: riseIn 0.7s ease 0.32s forwards;
+  }
+  .hero-location .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+  }
+  .route-line {
+    position: absolute;
+    right: -60px;
+    top: 40px;
+    width: 340px;
+    opacity: 0.35;
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION HEADERS */
+  .section-head {
+    font-family: var(--serif);
+    font-size: clamp(26px, 4vw, 32px);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 44px;
+    max-width: 52ch;
+  }
+  section.on-paper .section-sub { color: var(--muted-dark); }
+
+  /* ABOUT */
+  section.about {
+    padding: 88px 0;
+    border-top: 1px solid rgba(143, 163, 174, 0.15);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+  }
+  .about-bio p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    max-width: 40ch;
+  }
+  .about-bio .accent {
+    color: var(--accent-teal);
+    font-weight: 500;
+  }
+
+  .timeline {
+    border-left: 1px solid rgba(143, 163, 174, 0.25);
+    padding-left: 28px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 40px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: attr(data-step);
+    position: absolute;
+    left: -41px;
+    top: 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--accent-amber);
+    color: var(--accent-amber);
+    font-family: var(--serif);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .timeline-item h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .timeline-item .role {
+    font-size: 13px;
+    color: var(--accent-teal);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .timeline-item p {
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 40ch;
+  }
+
+  /* KPI / LEDGER BAND */
+  section.ledger {
+    background: var(--paper);
+    color: var(--text-dark);
+    padding: 88px 0;
+    position: relative;
+  }
+  section.ledger::before,
+  section.ledger::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--paper-line);
+  }
+  section.ledger::before { top: 0; }
+  section.ledger::after { bottom: 0; }
+  .ledger .section-head { color: var(--text-dark); }
+
+  .ledger-rows {
+    border-top: 1px solid var(--paper-line);
+  }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .ledger-figure {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--text-dark);
+    white-space: nowrap;
+  }
+  .ledger-figure span {
+    color: var(--accent-amber);
+  }
+  .ledger-desc h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ledger-desc p {
+    font-size: 14px;
+    color: var(--muted-dark);
+    max-width: 52ch;
+  }
+  .ledger-formula {
+    margin-top: 32px;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--text-dark);
+    background: rgba(217, 142, 43, 0.1);
+    border-left: 3px solid var(--accent-amber);
+    padding: 16px 20px;
+  }
+  .ledger-formula span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted-dark);
+    margin-top: 6px;
+  }
+
+  /* SKILLS */
+  section.skills {
+    padding: 88px 0;
+    border-top: 1px solid rgba(143, 163, 174, 0.15);
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .skill-group h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(217, 142, 43, 0.4);
+  }
+  .skill-group ul {
+    list-style: none;
+  }
+  .skill-group li {
+    font-size: 14.5px;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(143, 163, 174, 0.1);
+  }
+  .skill-group li:last-child { border-bottom: none; }
+
+  /* CONTACT */
+  footer.contact {
+    padding: 88px 0 64px;
+    border-top: 1px solid rgba(143, 163, 174, 0.15);
+  }
+  .contact-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+  }
+  .contact-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4.5vw, 38px);
+    font-weight: 600;
+    max-width: 14ch;
+    margin-bottom: 14px;
+  }
+  .contact-cta p {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 40ch;
+  }
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14.5px;
+  }
+  .contact-list a, .contact-list span {
+    color: var(--text-light);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    width: fit-content;
+  }
+  .contact-list a:hover {
+    color: var(--accent-amber);
+    border-color: var(--accent-amber);
+  }
+  .contact-list .label {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: none;
+    margin-bottom: -6px;
+  }
+  .foot-note {
+    margin-top: 64px;
+    font-size: 12.5px;
+    color: var(--muted-dark);
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 32px; }
+    .ledger-row { grid-template-columns: 1fr; gap: 8px; }
+    .nav-links { gap: 16px; font-size: 13px; }
+    .route-line { display: none; }
+    .contact-inner { align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">Asif Kabir</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="route-line" viewBox="0 0 340 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 160 C 60 140, 90 60, 150 70 S 240 150, 340 40" stroke="#4C9384" stroke-width="1.5" stroke-dasharray="4 6"/>
+      <circle cx="0" cy="160" r="4" fill="#D98E2B"/>
+      <circle cx="150" cy="70" r="4" fill="#D98E2B"/>
+      <circle cx="340" cy="40" r="4" fill="#D98E2B"/>
+    </svg>
+    <div class="hero-eyebrow">FMCG Sales Professional</div>
+    <h1 class="hero-name">Asif Kabir</h1>
+    <p class="hero-role">Field execution and retail growth across Sindh's snacks and Nimco market — currently driving sales for Shahi Foods.</p>
+    <div class="hero-location"><span class="dot"></span> Based in Sindh, Pakistan — Sukkur &amp; Shikarpur market</div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="section-head">Built from the field up</h2>
+    <p class="section-sub">Every stage of this career started on the ground — with retailers, order books, and daily targets — not behind a desk.</p>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>I started in FMCG as a <span class="accent">supplier</span>, where I learned how the market actually moves — customer dealing, supply operations, and the discipline that field work demands before it ever shows up as a number on a report.</p>
+        <p>That ground-level understanding is what I bring to every retailer visit, every order booked, and every target closed — practical experience over theory, earned one market day at a time.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" data-step="1">
+          <h3>Six B</h3>
+          <div class="role">Supplier</div>
+          <p>Learned market dynamics, customer dealing, supply operations, and retailer relationships from the ground level.</p>
+        </div>
+        <div class="timeline-item" data-step="2">
+          <h3>Winner Foods</h3>
+          <div class="role">Sales Representative</div>
+          <p>Built on field discipline — order and supply processes, retailer relationships, and consistent execution.</p>
+        </div>
+        <div class="timeline-item" data-step="3">
+          <h3>Shahi Foods</h3>
+          <div class="role">Sales Representative — Present</div>
+          <p>Selling the Shahi Nimco range and wider portfolio, driving retail execution and target achievement in the Sukkur market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ledger on-paper" id="achievements">
+  <div class="wrap">
+    <h2 class="section-head">Numbers from the field</h2>
+    <p class="section-sub">Tracked the way sales are tracked in this business — target, achievement, and the daily run rate behind them.</p>
+    <div class="ledger-rows">
+      <div class="ledger-row">
+        <div class="ledger-figure"><span>6M+</span></div>
+        <div class="ledger-desc">
+          <h4>PKR in sales — Sukkur market milestone</h4>
+          <p>A significant sales milestone reached in the Sukkur market, built through consistent field coverage and retailer relationships.</p>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-figure"><span>106.87%</span></div>
+        <div class="ledger-desc">
+          <h4>Target achievement — July 2026</h4>
+          <p>Target of PKR 262,000 against an achievement of PKR 280,000 for the month.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ledger-formula">
+      Strike Rate = Orders ÷ Visits × 100
+      <span>The formula behind daily execution — how many retailer visits actually convert into booked orders.</span>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="wrap">
+    <h2 class="section-head">What I bring to the market</h2>
+    <p class="section-sub">Skills built through daily field work, not a classroom.</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Field Execution</h3>
+        <ul>
+          <li>Market visits &amp; route coverage</li>
+          <li>Order booking</li>
+          <li>Display &amp; merchandising activity</li>
+          <li>Target achievement</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Relationships</h3>
+        <ul>
+          <li>Retailer trust-building</li>
+          <li>Distributor coordination</li>
+          <li>Customer dealing</li>
+          <li>Team &amp; senior collaboration</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Growth &amp; Targets</h3>
+        <ul>
+          <li>Sales growth tracking</li>
+          <li>Market development</li>
+          <li>Productivity &amp; strike rate</li>
+          <li>Range-wise sales planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-cta">
+        <h2>Let's talk market growth</h2>
+        <p>Open to conversations about FMCG sales roles, field execution, and retail growth in Sindh and beyond.</p>
+      </div>
+      <div class="contact-list">
+        <span class="label">Email</span>
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <span class="label">Phone</span>
+        <span>+92 3XX XXXXXXX</span>
+        <span class="label">LinkedIn</span>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">linkedin.com/in/your-profile</a>
+      </div>
+    </div>
+    <p class="foot-note">Asif Kabir — FMCG Sales Professional, Sindh, Pakistan</p>
+  </div>
+</footer>
+
+</body>
+</html>
